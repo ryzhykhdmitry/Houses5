@@ -100,7 +100,7 @@
 								{{ $pd->building_area }} м2
 							</div>
 							<div class="actions">
-								<a href="page-product-details.html" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i> Add</a> <span>or <a href="page-product-details.html">Read more</a></span>
+								<a href="{{ URL::route('project', $pd->id) }}" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i> Подробнее</a>
 							</div>
 						</div>
 					</div>
@@ -123,13 +123,13 @@
                     								<a href="{{ URL::route('/project/{id}', $pds->id) }}"><img src="/img/projects/{{ $pds->id }}/s/1.jpg" alt="Item Name"></a>
                     							</div>
                     							<div class="title">
-                    								<h3><a href="page-product-details.html">{{ $pds->title }}</a></h3>
+                    								<h3><a href="{{ URL::route('project', $pd->id) }}">{{ $pds->title }}</a></h3>
                     							</div>
                     							<div class="price">
                     								{{ $pds->building_area }} м2
                     							</div>
                     							<div class="actions">
-                    								<a href="page-product-details.html" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i> Add</a> <span>or <a href="page-product-details.html">Read more</a></span>
+                    								<a href="{{ URL::route('project', $pd->id) }}" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i> Подробнее</a>
                     							</div>
                     						</div>
                     					</div>
