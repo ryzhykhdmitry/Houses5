@@ -53,7 +53,6 @@ class SocialiteController extends Controller
         Auth::login($authUser, true);
 
         return redirect('/');
-
     }
 
     private function findOrCreateUser($user, $card)
@@ -61,12 +60,11 @@ class SocialiteController extends Controller
         if ($authUser = User::where($card, $user->getId())->first()) {
             return $authUser;
         }
-
         return User::create([
-            $card        => $user->getId(),
-            'username'   => $user->getName(),
-            'email'      => $user->getEmail(),
-            'active'     => 1
+            $card => $user->getId(),
+            'username' => $user->getName(),
+            'email' => $user->getEmail(),
+            'active' => 1
         ]);
     }
 }

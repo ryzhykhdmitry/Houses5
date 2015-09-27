@@ -84,10 +84,6 @@
 <!-- Выводим проекты из объекта по запросу(проектов больше несколько) -->
 @if(isset($pds) && count($pds) >1)
         @foreach($pds as $pd)
-
-
-
-
 					<div class="col-md-3 col-sm-6">
 						<div class="shop-item">
 							<div class="shop-item-image">
@@ -104,9 +100,6 @@
 							</div>
 						</div>
 					</div>
-
-
-
         @endforeach
 
 

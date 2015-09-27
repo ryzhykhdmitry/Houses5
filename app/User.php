@@ -26,7 +26,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['facebook_id','twitter_id', 'username', 'email', 'password', 'active', 'permissions', 'activation_code', 'remember_token'];
+    protected $fillable = ['facebook_id', 'twitter_id', 'username', 'email', 'password', 'active', 'permissions', 'activation_code', 'remember_token'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -37,41 +37,23 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public static function login($data, $remember)
     {
-        if (Auth::attempt([ 'email' => $data['email'], 'password' => $data['password'], 'active' => 1], $remember))
-        {
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'active' => 1], $remember)) {
             return Auth::user();
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
     public static function register($data, $code)
     {
-        try
-        {
-            // Create the user
-            $user = User::create(array(
-                'username'        => $data['username'],
-                'email'           => $data['email'],
-                'password'        => Hash::make($data['password']),
-                'active'          => false,
-                'permissions'     => false,
-                'activation_code' => $code
-            ));
-            return $user;
-
-
-        }
-        catch(Exception $e)
-        {
-            return $e;
-        }
-    }
-
-    public function getAuthPassword()
-    {
-        return $this->password;
+        $user = User::create(array(
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'active' => false,
+            'permissions' => false,
+            'activation_code' => $code
+        ));
+        return $user;
     }
 }
